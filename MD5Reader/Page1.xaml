@@ -1,0 +1,39 @@
+﻿<Page x:Class="MD5Reader.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MD5Reader"
+      mc:Ignorable="d"
+      Title="Page1" Height="222.679" Width="435.051">
+    <Page.Resources>
+
+        <Storyboard x:Key="MSGOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Justmsg">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"></EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="23"></EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="23"></EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"></EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+      
+
+    </Page.Resources>
+
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="CopyBtn" >
+            <BeginStoryboard Storyboard="{StaticResource MSGOpen}"></BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+
+    <Grid >
+        <Button x:Name="openfile" Content="..." HorizontalAlignment="Left" Margin="395,5,0,0" VerticalAlignment="Top" Width="35" Height="23" Click="openfile_Click"/>
+        <TextBox x:Name="Filetext" HorizontalAlignment="Left" Height="23" Margin="5,5,0,0" TextWrapping="Wrap" Text="Choose your program" VerticalAlignment="Top" Width="385"/>
+        <TextBlock  Text="MD5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="186,45,0,0" Width="52" Height="33" FontSize="18" Foreground="White"/>
+        <TextBox x:Name="MDText" HorizontalAlignment="Left" Height="23" Margin="5,98,0,0" TextWrapping="Wrap" Text="MD5" VerticalAlignment="Top" Width="425"/>
+        <Button x:Name="VerifBtn" Content="Proceed" HorizontalAlignment="Left" Margin="143,144,0,0" VerticalAlignment="Top" Width="138" Click="proceeding_Click"/>
+        <Button x:Name="CopyBtn" Content="Copy" HorizontalAlignment="Left" Margin="143,184,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click"/>
+        <Border x:Name="Justmsg" Margin="123,98,130,102" Background="#FFA2A2A2" Height="0">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White">Sent to clipboard</TextBlock></Border>
+    </Grid>
+</Page>
